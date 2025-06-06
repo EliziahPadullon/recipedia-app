@@ -52,3 +52,14 @@ class BookmarkDeleteView(generics.DestroyAPIView):
     def get_queryset(self):
         return Bookmark.objects.filter(user=self.request.user)
     
+
+from django.utils.decorators import method_decorator
+from .throttling import rate_limit
+from rest_framework.generics import CreateAPIView
+from rest_framework.permissions import IsAuthenticated
+
+@method_decorator(rate_limit(key_prefix="create_recipe", limit=3, timeout=60), name='dispatch')
+class RecipeCreateView(CreateAPIView):
+    queryset = Recipe.objects.all()
+    serializer_class = RecipeSerializer
+    permission_classes = [IsAuthenticated]
