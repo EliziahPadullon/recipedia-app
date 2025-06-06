@@ -1,4 +1,4 @@
-### Recipedia
+## Recipedia
 Recipedia is a RESTful API built using Django and Django REST Framework that enables authenticated users to create, manage, and explore cooking recipes. It includes full CRUD support, user authentication, bookmarking functionality, profile image handling, and a custom rate-limiting mechanism.
 
 ---
@@ -17,42 +17,42 @@ Token refresh endpoint
 
 ## Installation
 
-# Clone the repository
+### Clone the repository
 
 bash
 git clone https://github.com/EliziahPadullon/recipedia.git
 cd recipedia
 
-# Set up a virtual environment
+### Set up a virtual environment
 
 bash
 python -m venv venv
 source venv/bin/activate
 
-# Install dependencies
+### Install dependencies
 
 bash
 pip install -r requirements.txt
 
-# Run migrations
+### Run migrations
 
 bash
 python manage.py makemigrations
 python manage.py migrate
 
-# Start the development server
+### Start the development server
 bash
 python manage.py runserver
 
 ## API Endpoints
 
-# Authentication
+### Authentication
 Method	Endpoint	Description
 POST	/api/auth/register/	Register a new user
 POST	/api/auth/login/	Obtain JWT access and refresh tokens
 POST	/api/auth/token/refresh/	Refresh the access token
 
-# Recipes CRUD
+### Recipes CRUD
 **Method	Endpoint	Description**
 GET	/api/recipes/	List all recipes
 POST	/api/recipes/	Create a new recipe
@@ -77,7 +77,7 @@ DELETE	/api/recipes/<id>/	Delete a recipe
   "author": "testuser"
 }
 
-# Bookmarks
+### Bookmarks
 **Method	Endpoint	Description**
 POST	/api/recipes/bookmarks/	Create a bookmark
 GET	/api/recipes/bookmarks/	List user bookmarks
@@ -88,7 +88,7 @@ DELETE	/api/recipes/bookmarks/<id>/	Remove a bookmark
   "recipe": 1
 }
 
-# Categories
+### Categories
 **Method	Endpoint	Description**
 GET	/api/recipes/categories/	List all categories
 POST	/api/recipes/categories/	Create a new category
@@ -101,7 +101,7 @@ DELETE	/api/recipes/categories/<id>/	Delete a category
   "name": "Desserts"
 }
 
-# Profile Picture Upload
+### Profile Picture Upload
 **Field: profile_picture**
 
 Accepted formats: .jpg, .jpeg, .png, .webp
@@ -112,7 +112,7 @@ Automatically cropped to a 1:1 aspect ratio on upload
 
 Upload via multipart/form-data
 
-# Rate Limiting
+### Rate Limiting
 A custom decorator limits the number of API requests allowed within a specified time window (e.g., 5 requests per minute).
 
 If the rate limit is exceeded:
